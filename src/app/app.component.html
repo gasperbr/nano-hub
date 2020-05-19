@@ -1,0 +1,15 @@
+<nav>
+  <div class="name">Your Nano Hub</div>
+  <a mat-button [routerLink]="['/re-buy']" [routerLinkActive]="['active']">Rebuy</a>
+  <a mat-button [routerLink]="['/my-bots']" [routerLinkActive]="['active']">Bots</a>
+  <a mat-button [routerLink]="['/config']" [routerLinkActive]="['active']">Configuration</a>
+  <div class="price" *ngIf="nanoPriceUsd$ | async">1 NANO = ${{(nanoPriceUsd$ | async) | number:'1.2-2'}}</div>
+</nav>
+<div id="topTag"></div>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+<footer>
+  <p>Reach me on reddit: u/gaspper</p>
+  <p>nano_1ciab3uzyzze4noaaf1b8jm584ifmkfwukter55nted3x3zxiz4cw7wxjgn5</p>
+</footer>

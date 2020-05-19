@@ -1,0 +1,83 @@
+
+.rebuy {
+  margin: auto;
+  margin-bottom: 6rem;
+  max-width: 1000px;
+}
+
+.section {
+  padding: 1rem;
+  margin-top: 2rem;
+  background: white;
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+  &:first-of-type {
+    margin-top: 0;
+  }
+  p {
+    color: var(--blue-grey);
+  }
+  .title-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .title {
+    line-height: 32px;
+    font-size: 20px;
+    font-weight: 400px;
+    margin-right: 1rem;
+  }
+  .big {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 3rem;
+  }
+  .small {
+    margin-left: 1rem;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--blue-grey);
+  }
+}
+
+.form  {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 2rem;
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    mat-form-field {
+      margin-right: 2rem;
+    }
+  }
+}
+.button {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  button {
+    min-width: 200px;
+    margin-right: 0.5rem;
+  }
+}
+
+p {
+  color: var(--blue-grey);
+}
+
+.smaller {
+  width: 200px;
+}
+
+mat-slide-toggle {
+  margin-bottom: 2rem;
+  // margin-top: 2rem;
+  margin-right: auto;
+}
+
+mat-progress-spinner {
+  margin-right: 0.5rem;
+}

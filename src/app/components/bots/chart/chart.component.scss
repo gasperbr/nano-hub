@@ -1,0 +1,18 @@
+.chart-wrapper {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-height: 50vh;
+  min-height: 50vh;
+  .info {
+    display: flex;
+    justify-content: space-between;
+  }
+  .chart {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: center;
+  }
+}

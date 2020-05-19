@@ -1,0 +1,36 @@
+
+.section {
+  padding: 1rem;
+  margin-top: 2rem;
+  background: white;
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+  &:first-of-type {
+    margin-top: 0;
+  }
+  p {
+    color: var(--blue-grey);
+  }
+  .title-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .title {
+    line-height: 32px;
+    font-size: 20px;
+    font-weight: 400px;
+    margin-right: 1rem;
+  }
+  .big {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 3rem;
+  }
+  .small {
+    margin-left: 1rem;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--blue-grey);
+  }
+}

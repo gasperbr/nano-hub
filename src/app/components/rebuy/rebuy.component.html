@@ -1,0 +1,93 @@
+<div class="rebuy">
+  <div class="section">
+    <div class="title-section">
+      <span class="title highlight">Rebuy nano</span>
+    </div>
+    <p>
+      The rebuy service will periodically check your account balnce. If you balance is below
+      a threshold it will automatically purchase Nano and send it to your wallet.
+    </p>
+  </div>
+
+  <div class="section" *ngIf="(apiKeysSet$ | async) === 'no'">
+    <p>Please see the configuration tab for instuctions to set up you exchange api keys.</p>
+  </div>
+
+  <div class="section">
+    <div class="title-section">
+      <mat-progress-spinner *ngIf="apiCall" style="margin-right: 0.5rem;"
+        [color]="'primary'"
+        [diameter]="24"
+        [mode]="'indeterminate'">
+      </mat-progress-spinner>
+      <span *ngIf="address.value && !address.hasError('badAddress')" class="title highlight">Address balance:</span>
+      <mat-progress-spinner *ngIf="address.value && !address.hasError('badAddress') && (!nanoBalance || nanoBalance === 0)" style="margin-right: 0.5rem;"
+        [color]="'primary'"
+        [diameter]="24"
+        [mode]="'indeterminate'">
+      </mat-progress-spinner>
+      <span *ngIf="address.value && !address.hasError('badAddress') && nanoBalance" class="big">{{nanoBalance | number:'1.4-4'}} NANO </span>
+      <span *ngIf="address.value && !address.hasError('badAddress') && (nanoBalancePending)" class="big">&nbsp;(+{{nanoBalancePending | number:'1.4-4'}} pending)</span>
+      <span *ngIf="!apiCall && (!address.value || address.hasError('badAddress'))" class="title">Service setup:</span>
+    </div>
+    <div class="form">
+      <mat-slide-toggle *ngIf="status.value"
+          [color]="'primary'"
+          [checked]="status.value === 'up'"
+          (change)="toggleStatus($event)">
+        Service is {{status.value === 'up' ? 'enabled' : 'disabled'}}
+      </mat-slide-toggle>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nano address</mat-label>
+        <input matInput name="nano" [formControl]="address" placeholder="Whitelisted address">
+        <mat-error *ngIf="address.hasError('badAddress')">Must be a valid nano address.</mat-error>
+      </mat-form-field>
+      <div class="flex">
+        <mat-form-field class="smaller">
+          <mat-label>Minimum balance</mat-label>
+          <input matInput type="number" [formControl]="nanoLimit" placeholder="500">
+          <mat-error *ngIf="nanoLimit.hasError('min')">Must be at least 1.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Exchange</mat-label>
+          <mat-select [formControl]="exchange">
+            <mat-option *ngFor="let e of exchanges" value="{{e}}">
+              {{e}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Nano pair</mat-label>
+          <mat-select [formControl]="pair">
+            <mat-option *ngFor="let p of pairs" value="{{p}}">
+              {{p}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="button">
+        <button (click)="save()" mat-raised-button color="primary">Save</button>
+          <mat-progress-spinner *ngIf="updatingSetup" style="margin-right: auto;"
+          [color]="'primary'"
+          [diameter]="24"
+          [mode]="'indeterminate'">
+        </mat-progress-spinner>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" *ngIf="history">
+    <div class="title-section">
+      <span class="title highlight">History:</span>
+    </div>
+    <p>Last execution: {{history.lastExecution | date:'medium'}}
+      <span matTooltip="Withdrawals might take some time. This prevents the service initiating new requests before NANO was successfully withdrawn."
+      *ngIf="isRecent(history.lastExecution) && history.nanoBought > 0">
+        (1 hour needs to pass inbetween purchases)
+      </span>
+    </p>
+    <p>Nano purchased: {{history.nanoBought}}</p>
+    <p>Message: {{history.message}}</p>
+  </div>
+
+</div>

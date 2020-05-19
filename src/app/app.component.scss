@@ -1,0 +1,54 @@
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  min-height: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: var(--dark-blue);
+  box-shadow: var(--shadow-dark);
+  color: var(--light-blue);
+  padding: 0 1rem;
+  >* {
+    min-height: 2rem;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+  }
+  a {
+    // margin-left: 0.5rem;
+    // margin-right: 0.5rem;
+    &:first-of-type {
+      margin-left: 0.5rem;
+    }
+    &.active {
+      text-decoration: underline;
+    }
+  }
+  .name {
+    padding-right: 1.5rem;
+    border-right: 1px solid white;
+  }
+  .price {
+    margin-left: auto;
+  }
+}
+
+.content {
+  // background-image: url('../assets/shape.png');
+  min-height: calc(100vh - 4rem);
+  padding: 2rem 1rem;
+  // background-size: cover;
+}
+
+footer {
+  padding: 2rem;
+  color: var(--light-blue);
+  background-color: var(--dark-blue);
+  p {
+    word-break: break-word;
+  }
+}

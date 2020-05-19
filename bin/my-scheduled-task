@@ -1,0 +1,17 @@
+#! /app/.heroku/node/bin/node
+// use a 'shabang'
+// https://stackoverflow.com/questions/13345664/using-heroku-scheduler-with-node-js
+
+const CryptoJS = require("crypto-js");
+const request = require('request');
+
+// this will be called every 10 minutes / 1 hour / 1 day and call the app to execute its logic
+function scheduledTask() {
+
+  const adminKey = CryptoJS.SHA1(process.env.ADMINKEY).toString();
+  const url = `https://${process.env.APPNAME}.herokuapp.com/api/execute?adminKey=${adminKey}`;
+  request(url, function(err, httpRes, data) {});
+  
+}
+
+scheduledTask();

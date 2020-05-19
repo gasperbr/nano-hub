@@ -1,0 +1,16 @@
+<div class="chart-wrapper">
+  <div class="info">
+    <span>Exchange balance</span>
+    <mat-button-toggle-group name="exchange" [value]="chosenExchange" aria-label="Font Style">
+      <mat-button-toggle value="binance">Binance</mat-button-toggle>
+      <mat-button-toggle value="kraken">Kraken</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div class="chart">
+    <mat-progress-spinner
+      [color]="'primary'"
+      [diameter]="36"
+      [mode]="'indeterminate'">
+    </mat-progress-spinner>
+  </div>
+</div>

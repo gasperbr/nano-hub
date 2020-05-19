@@ -1,0 +1,53 @@
+
+.section {
+  padding: 1rem;
+  background: white;
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+  margin-top: 2rem;
+  &:first-of-type {
+    margin-top: 0;
+  }
+  p {
+    color: var(--blue-grey);
+  }
+  .title-section {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+  }
+  .title {
+    line-height: 32px;
+    font-size: 20px;
+    font-weight: 400px;
+    margin-right: 1rem;
+  }
+  .big {
+    font-size: 22px;
+    font-weight: 500;
+  }
+  .small {
+    margin-left: 1rem;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--blue-grey);
+  }
+}
+
+.chart-section {
+  margin-top: 1rem;
+  margin: 1rem;
+  background: white;
+  box-shadow: var(--shadow);
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .chart-section {
+    margin: 0rem;
+    margin-top: 1rem;
+  }
+  .bots {
+    margin: 0rem;
+  }
+}
