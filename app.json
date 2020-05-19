@@ -1,0 +1,17 @@
+{
+  "name": "Your Nano Hub",
+  "description": "Your own Service for trading bots and a repurchase strategy for $Nano cryptocurrency",
+  "keywords": ["Nano","crypto","service","trading","rebuy"],
+  "repository": "https://github.com/gasperbr/nano-hub",
+  "env": {
+    "BINANCE_API_KEY_TRADE": {
+      "description": "Binance API key for trading",
+      "value": "Replace me!"
+    },
+    "BINANCE_SECRET_KEY_TRADE": {
+      "description": "Binance secret key for trading",
+      "value": "Replace me!"
+    }
+  },
+  "addons": ["mongolab","fixie","scheduler"]
+}
