@@ -1,16 +1,32 @@
 {
-  "name": "Your Nano Hub",
-  "description": "Your own Service for trading bots and a repurchase strategy for $Nano cryptocurrency",
+  "name": "Nano Hub",
+  "description": "Your own service for trading bots and a repurchase strategy for $Nano cryptocurrency",
   "keywords": ["Nano","crypto","service","trading","rebuy"],
   "repository": "https://github.com/gasperbr/nano-hub",
   "env": {
+    "APPNAME": {
+      "description": "Needs to be the same as your app's name",
+      "value": "Please retype your app name"
+    },
+    "ADMINKEY": {
+      "description": "Key for authenticating calls from your web-app",
+      "value": "nanoissuperior"
+    },
     "BINANCE_API_KEY_TRADE": {
       "description": "Binance API key for trading",
-      "value": "Replace me!"
+      "value": "You can set me up later."
     },
     "BINANCE_SECRET_KEY_TRADE": {
       "description": "Binance secret key for trading",
-      "value": "Replace me!"
+      "value": "You can set me up later."
+    },
+    "BINANCE_API_KEY_WITHDRAW": {
+      "description": "Binance API key for withdrawals",
+      "value": "You can set me up later."
+    },
+    "BINANCE_SECRET_KEY_WITHDRAW": {
+      "description": "Binance secret key for withdrawals",
+      "value": "You can set me up later."
     }
   },
   "addons": ["mongolab","fixie","scheduler"]
